@@ -11,7 +11,7 @@ public class PlayerField : MonoBehaviour
         {
             for (int y = 0; y < CONSTANTS.FIELD_HEIGHT; y++)
             {
-                renderers[x, y].SetMinoType(pd.field[x, y]);
+                renderers[x, y].SetMinoColor(pd.field[x, y]);
             }
         }
 

@@ -7,7 +7,7 @@ using SimpleJSON;
 //result["incomingGarbage"] = self.incomingGarbage
 public class PlayerData
 {
-    public MinoType[,] field;
+    public MinoColor[,] field;
     public int garbagePending;
     public PlayerData(JSONNode j)
     {
@@ -15,7 +15,7 @@ public class PlayerData
         int xMax = j["field"].Count;
         int yMax = j["field"][0].Count;
 
-        field = new MinoType[xMax, yMax];
+        field = new MinoColor[xMax, yMax];
 
         for (int x = 0; x < xMax; x++)
         {
@@ -23,7 +23,7 @@ public class PlayerData
             for (int y = 0; y < yMax; y++)
             {
                 string colourString = columns[y];
-                field[x, y] = Mino.colourStringToMino(colourString);
+                field[x, y] = Mino.Instance.colourStringToMino(colourString);
             }
         }
 

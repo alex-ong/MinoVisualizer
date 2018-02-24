@@ -89,6 +89,9 @@ public class MyTcpListener : MonoBehaviour
                 // You could also user server.AcceptSocket() here.
                 TcpClient client = server.AcceptTcpClient();
                 client.NoDelay = true;
+                client.ReceiveTimeout = 500;
+                client.SendTimeout= 500;
+                
                 Debug.Log("Connected!");
 
                 data = null;

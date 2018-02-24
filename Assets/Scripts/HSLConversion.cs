@@ -10,50 +10,55 @@ using System;
 public static class HSLConverter
 {
     public static void RGB2HSL(int r, int g, int b, out float h, out float s, out float l)
+    {
+        float r2 = r / 255f;
+        float g2 = g / 255f;
+        float b2 = b / 255f;
 
-    {        
-        float v;
-        float m;
-        float vm;
-        float r2, g2, b2;
+        float[] values = new float[] { r2, g2, b2 };
+        Array.Sort(values);
+        float min = values[0];
+        float max = values[2];
 
-        h = 0; // default to black
-        s = 0;
-        l = 0;
-        v = Mathf.Max(r, g);
-        v = Mathf.Max(v, b);
-        m = Mathf.Min(r, g);
-        m = Mathf.Min(m, b);
-        l = (m + v) / 2.0f;
-        if (l <= 0.0)
+        l = (min + max) / 2.0f;
+        if (min == max)
         {
-            return;
+            s = 0.0f;
         }
-        vm = v - m;
-        s = vm;
-        if (s > 0.0f)
+        else if (l < 0.5f)
         {
-            s /= (l <= 0.5f) ? (v + m) : (2.0f - v - m);
+            s = (max - min) / (max + min);
         }
         else
         {
-            return;
+            s = (max - min) / (2.0f - max - min);
         }
-        r2 = (v - r) / vm;
-        g2 = (v - g) / vm;
-        b2 = (v - b) / vm;
-        if (r == v)
+
+        if (s == 0) //no saturation = no hue
         {
-            h = (g == m ? 5.0f + b2 : 1.0f - g2);
-        }
-        else if (g == v)
-        {
-            h = (b == m ? 1.0f + r2 : 3.0f - b2);
+            h = 0;
         }
         else
         {
-            h = (r == m ? 3.0f + g2 : 5.0f - r2);
+            if (r2 == max)
+            {
+                h = (g2 - b2) / (max - min);
+            }
+            else if (g2 == max)
+            {
+                h = 2.0f + (b2 - r2) / (max - min);
+            }
+            else
+            {
+                h = 4.0f + (r2 - g2) / (max - min);
+            }
+            h *= 60f;
+            if (h < 0)
+            {
+                h += 360f;
+            }
+
+            h /= 360f;
         }
-        h /= 6.0f;
-    }
+    }       
 }

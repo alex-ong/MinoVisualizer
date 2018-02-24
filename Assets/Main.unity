@@ -322,6 +322,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &903977435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 903977437}
+  - component: {fileID: 903977436}
+  m_Layer: 0
+  m_Name: (singleton) Mino
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &903977436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 903977435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc01713eebbfe2409143efcbffb199d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EmptyLum: 0.1
+  SolidLum: 0.8
+  GarbageLum: 0.65
+  satGrey: 0.6
+--- !u!4 &903977437
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 903977435}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.8382475, y: 24.481615, z: -20.450907}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1105343113
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,13 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd8d2c14406f924eb54afd307a55cce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  L: {fileID: 2100000, guid: 9c782cb4e52e727499b6eee2bf23681f, type: 2}
-  O: {fileID: 2100000, guid: f5aa718177828d143bac57c4da23e355, type: 2}
-  S: {fileID: 2100000, guid: a0161b224e53ef14da08c951439007f0, type: 2}
-  T: {fileID: 2100000, guid: 4f9bf5d41cb9d8d4ba712103bba0ffee, type: 2}
-  J: {fileID: 2100000, guid: be766e2cd45541a46a2cd22d0ae4226d, type: 2}
-  I: {fileID: 2100000, guid: a2504d7e85d486a459b9b93524a44554, type: 2}
-  Z: {fileID: 2100000, guid: 90b8bd8f1a1a0664281f99a0a43c144f, type: 2}
+  Color: {fileID: 2100000, guid: bd287553fc8be374da361cfbd414314e, type: 2}
   Garbage: {fileID: 2100000, guid: 5a5e5cacc786d0d46bce032ff4356a6b, type: 2}
   Solid: {fileID: 2100000, guid: 7c971e6ed4d44c74ba156a429502f9a1, type: 2}
   Empty: {fileID: 2100000, guid: 78f039e0d15ecfd41aaaab376f470d19, type: 2}
@@ -376,7 +414,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: bd287553fc8be374da361cfbd414314e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
