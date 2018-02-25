@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerField : MonoBehaviour
 {
     MinoRenderer[,] renderers;
+    public GarbageRenderer garbageRenderer;
     public void PlayData(PlayerData pd)
     {
         for (int x = 0; x < CONSTANTS.FIELD_WIDTH; x++)
@@ -15,7 +16,7 @@ public class PlayerField : MonoBehaviour
             }
         }
 
-        //something for garbage.
+        garbageRenderer.SetGarbage(pd.garbagePending);
     }
 
     public GameObject prefab;

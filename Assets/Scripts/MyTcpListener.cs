@@ -82,8 +82,6 @@ public class MyTcpListener : MonoBehaviour
             // Enter the listening loop.
             while (!stopped)
             {
-                Debug.Log("Waiting for a connection... ");
-
                 // Perform a blocking call to accept requests.
                 TcpClient client = server.AcceptTcpClient();
 
@@ -112,8 +110,6 @@ public class MyTcpListener : MonoBehaviour
         client.NoDelay = true;
         client.ReceiveTimeout = 500;
         client.SendTimeout = 500;
-
-        Debug.Log("Connected!");
 
         // Buffer for reading data
         Byte[] bytes = new Byte[4096]; //1 megabyte should do it.

@@ -40,7 +40,7 @@ public class MinoRenderer : MonoBehaviour {
             scale.z = 0.01f;
 
             Vector3 pos = this.transform.localPosition;
-            pos.z = 1.0f;
+            pos.z = 0.5f;
             this.transform.localScale = scale;
             this.transform.localPosition = pos;
         }
