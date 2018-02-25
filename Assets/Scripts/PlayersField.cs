@@ -19,7 +19,7 @@ public class PlayersField : MonoBehaviour
         {
             var ps =  mr.states.Dequeue();
 
-            RenderPs(ps);
+            RenderPs(ps);           
         }
     }
 
@@ -29,6 +29,7 @@ public class PlayersField : MonoBehaviour
         {
             PlayerData pd = ps.data[i];
             playerFields[i].PlayData(pd);
+            
         }
         
     }

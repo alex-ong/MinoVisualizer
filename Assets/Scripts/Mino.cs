@@ -11,6 +11,7 @@ public class Mino : Singleton<Mino>
     
     public float satGrey = 0.4f;
 
+
     public class ColorPair {
         public MinoType t;
         public float hue;

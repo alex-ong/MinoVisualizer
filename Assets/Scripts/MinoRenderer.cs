@@ -11,15 +11,21 @@ public class MinoRenderer : MonoBehaviour {
     public void SetMinoColor(MinoColor mt)
     {
         Renderer r = this.GetComponent<Renderer>();
+        if (r.material != null)
+        {
+            Destroy(r.material);
+            r.material = null;
+        }
+
         switch (mt.type)
         {
             case MinoType.Color:
                 r.material = Color;
                 r.material.color = mt.c;
                 break;
-            case MinoType.Garbage: r.sharedMaterial = Garbage; break;
-            case MinoType.Solid: r.sharedMaterial = Solid; break;
-            case MinoType.Empty: r.sharedMaterial = Empty; break;
+            case MinoType.Garbage: r.material = Garbage; break;
+            case MinoType.Solid: r.material = Solid; break;
+            case MinoType.Empty: r.material = Empty; break;
         }    
         
         //Set the mino width. We can get sick 3d effect with empty field.
@@ -34,13 +40,16 @@ public class MinoRenderer : MonoBehaviour {
             scale.z = 0.01f;
 
             Vector3 pos = this.transform.localPosition;
-            pos.z = -0.5f;
+            pos.z = 1.0f;
+            this.transform.localScale = scale;
+            this.transform.localPosition = pos;
         }
         else
         {
             this.transform.localScale = Vector3.one;
             Vector3 pos = this.transform.localPosition;
             pos.z = 0.0f;
+            this.transform.localPosition = pos;
         }
     }
 
