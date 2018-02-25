@@ -60,5 +60,54 @@ public static class HSLConverter
 
             h /= 360f;
         }
-    }       
+    }
+
+    public static Color32 ToRGB(float hue, float sat, float lum)
+    {
+        byte r, g, b;
+        if (sat == 0)
+        {
+            r = (byte)Math.Round(lum * 255f);
+            g = (byte)Math.Round(lum * 255f);
+            b = (byte)Math.Round(lum * 255f);
+        }
+        else
+        {
+            float t1, t2;
+            float th = hue;
+
+            if (lum < 0.5f)
+            {
+                t2 = lum * (1f + sat);
+            }
+            else
+            {
+                t2 = (lum + sat) - (lum * sat);
+            }
+            t1 = 2f * lum - t2;
+
+            float tr, tg, tb;
+            tr = th + (1.0f / 3.0f);
+            tg = th;
+            tb = th - (1.0f / 3.0f);
+
+            tr = ColorCalc(tr, t1, t2);
+            tg = ColorCalc(tg, t1, t2);
+            tb = ColorCalc(tb, t1, t2);
+            r = (byte)Math.Round(tr * 255d);
+            g = (byte)Math.Round(tg * 255d);
+            b = (byte)Math.Round(tb * 255d);
+        }
+        return new Color32(r, g, b, 255);
+    }
+    private static float ColorCalc(float c, float t1, float t2)
+    {
+
+        if (c < 0) c += 1;
+        if (c > 1) c -= 1;
+        if (6.0f * c < 1.0f) return t1 + (t2 - t1) * 6.0f * c;
+        if (2.0f * c < 1.0f) return t2;
+        if (3.0f * c < 2.0f) return t1 + (t2 - t1) * (2.0f / 3.0f - c) * 6.0f;
+        return t1;
+    }
 }

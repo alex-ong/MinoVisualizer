@@ -6,13 +6,15 @@ public class PlayerField : MonoBehaviour
 {
     MinoRenderer[,] renderers;
     public GarbageRenderer garbageRenderer;
+    public MinoColourConverter mcc;
     public void PlayData(PlayerData pd)
     {
         for (int x = 0; x < CONSTANTS.FIELD_WIDTH; x++)
         {
             for (int y = 0; y < CONSTANTS.FIELD_HEIGHT; y++)
             {
-                renderers[x, y].SetMinoColor(pd.field[x, y]);
+                MinoColor mc = mcc.colourStringToMino(pd.field[x, y]);
+                renderers[x, y].SetMinoColor(mc);
             }
         }
 

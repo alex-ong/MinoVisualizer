@@ -4,7 +4,7 @@ using UnityEngine;
 using SimpleJSON;
 public class PlayerState
 {
-    public List<PlayerData> data = new List<PlayerData>();
+    public List<PlayerData> data = new List<PlayerData>();    
     public PlayerState(JSONNode j)
     {
         foreach (JSONNode j2 in j)
