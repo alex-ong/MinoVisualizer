@@ -18,15 +18,14 @@ public class LoadTextureStartup : MonoBehaviour {
     public MinoRenderer mr;
 
     public IEnumerator LoadTexture(Material m, string assetName)
-    {
-        string path = Path.Combine("file://" + Application.streamingAssetsPath, assetName);
+    {        
+        string path = Path.Combine("file:///" + Application.streamingAssetsPath, assetName);
         Debug.Log("loading..." + path);
         WWW www = new WWW(path);
         yield return www;
         m.mainTexture = www.texture;
-        
-
     }
+
     public IEnumerator LoadTextures()
     {
         yield return StartCoroutine(LoadTexture(mr.Empty, "empty.png"));
