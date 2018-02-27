@@ -254,12 +254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc01713eebbfe2409143efcbffb199d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EmptyLum: 0.1
-  SolidLum: 0.25
-  GarbageLum: 0.65
-  satGrey: 0.4
-  satAdjust: 1
-  lumAdjust: 1
   playerID: 1
 --- !u!1 &92960389
 GameObject:
@@ -685,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68512d1a9aea85041baa31e2441c9513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assetName: player1.png
+  assetName: Player1.png
 --- !u!1 &1105343113
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,12 +837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc01713eebbfe2409143efcbffb199d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EmptyLum: 0.1
-  SolidLum: 0.25
-  GarbageLum: 0.65
-  satGrey: 0.4
-  satAdjust: 1
-  lumAdjust: 1
   playerID: 2
 --- !u!1 &1620488284
 GameObject:
@@ -893,7 +881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68512d1a9aea85041baa31e2441c9513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assetName: player2.png
+  assetName: Player2.png
 --- !u!23 &1620488287
 MeshRenderer:
   m_ObjectHideFlags: 0

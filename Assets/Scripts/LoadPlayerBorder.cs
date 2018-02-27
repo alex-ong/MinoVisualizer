@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class LoadPlayerBorder : MonoBehaviour {
 
     public string assetName;
     public IEnumerator LoadTexture(Material m, string assetName)
     {
-        string path = Application.streamingAssetsPath + "/" + assetName;
+        string path = Path.Combine("file://" + Application.streamingAssetsPath, assetName);
         Debug.Log("loading..." + path);
         WWW www = new WWW(path);
         yield return www;
